@@ -3,6 +3,15 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const compression = require('compression'); //significantly reducing the time required for the client to get and load the page.
+const helmet = require('helmet'); //helps secure Express apps by setting HTTP response headers.
+
+// Set up rate limiter: maximum of twenty requests per minute
+const RateLimit = require('express-rate-limit');
+const limiter = RateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 40,
+});
 
 require('dotenv').config();
 const mongoose = require('mongoose');
@@ -22,6 +31,14 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(compression());
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    "script-src": ["'self'", "code.jquery.com", "cdn.jsdelivr.net"],
+  },
+}));
+app.use(limiter); // Apply rate limiter to all requests
 
 app.use(logger('dev'));
 app.use(express.json());
