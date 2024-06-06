@@ -1,0 +1,10 @@
+<h1><%= title %></h1>
+<% if(categories.length > 0) { %>
+    <ul>
+        <% categories.forEach((category) => { %>
+            <li>
+                <a href=<%= category.url %>><%= category.name %></a>
+            </li>
+        <% }) %>
+    </ul>
+<% } %>

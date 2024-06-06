@@ -1,0 +1,12 @@
+<h1><%= title %></h1>
+<% if(items.length > 0) { %>
+    <ul>
+        <% items.forEach((item) => { %>
+            <li>
+                <a href=<%= item.url %>><%= item.name %></a> - $<%= item.price %>
+            </li>
+        <% }) %>
+    </ul>
+<% } else { %>
+    <p>There are no items.</p>
+<% } %>

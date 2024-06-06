@@ -1,0 +1,18 @@
+<h1>Category: <%= category.name %> </h1>
+<div style="margin-left: 20px;margin-top:20px">
+    <h2 style="font-size: 1.5rem;">Items</h2>
+    <% if(items.length > 0) { %>
+        <dl>
+            <% items.forEach((item) => { %>
+                <dt>
+                    <a href=<%= item.url %>><%= item.name %></a>
+                </dt>
+                <dd>
+                    <%= item.description %>
+                </dd>
+            <% }) %>
+        </dl>
+    <% } else {%>
+        <p>this category has no items.</p>
+    <% } %>
+</div>

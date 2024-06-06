@@ -1,0 +1,12 @@
+<h2><%= item.name %></h2>
+<p><strong>description: </strong><%= item.description %></p>
+<p>Availability: <%= item.number_in_stock %></p>
+<h5>$<%= item.price %></h5>
+<p>
+    <strong>Category:</strong>
+    <% item.category.forEach((val, index) => { %>
+        <a href=<%= val.url %>> <%= val.name %></a>
+        <% if(index < item.category.length - 1) { %>
+            ,&nbsp;
+        <% } })%>
+</p>
