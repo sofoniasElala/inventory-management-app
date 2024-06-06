@@ -1,0 +1,10 @@
+<h1><%= title %>: <%= item.name %></h1>
+<p><%= item.description %></p>
+<p>Do you really want to delete this item?</p>
+<form action="" method="post">
+    <div class="form-group">
+        <input type="hidden" id="itemid" class="form-control" name="itemid" value=<%= item._id %>>
+    </div>
+    <button class="btn btn-primary" type="submit">Delete</button>
+</form>
+
