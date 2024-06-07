@@ -26,5 +26,8 @@
     "mongoose": "^8.4.1",
     "morgan": "~1.9.1",
     "vary": "^1.1.2"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.7"
   }
 }
